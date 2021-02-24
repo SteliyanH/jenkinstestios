@@ -3,21 +3,21 @@ pipeline {
     stages {
         stage('Reinitialize jenkins keychain') {
             steps {
-                node('mac') {
+                node('Mac') {
                     sh "./fastlane refreshJenkinsKeychain"
                 }
             }
         }
         stage('Populate Jenkins Keychain') {
             steps {
-                node('mac') {
+                node('Mac') {
                     sh "./fastlane matchPopulateJenkinsKeychain"
                 }
             }
         }
         stage('Build application for beta') {       
             steps {
-                node('mac') {
+                node('Mac') {
                     sh "./fastlane buildAppWithGym"
                 }
             }
