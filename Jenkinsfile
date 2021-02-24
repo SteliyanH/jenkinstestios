@@ -1,10 +1,5 @@
 pipeline {
-    agent any
- 
-    triggers {
-        pollSCM ignorePostCommitHooks: true, scmpoll_spec: pollSpec
-    }
-
+    agent any 
     stages {
 
         stage('Reinitialize jenkins keychain') {
