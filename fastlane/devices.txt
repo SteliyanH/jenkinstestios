@@ -1,2 +1,2 @@
 Device ID	Device Name	Device Platform
-00008020-001230CA0A32002E   Steliyan's Iphone   ios
+00008020-001230CA0A32002E	Steliyan's iPfone	ios
