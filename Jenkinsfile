@@ -1,9 +1,5 @@
 pipeline {
     agent any
-
-    options {
-        ansiColor("xterm")
-    }
  
     triggers {
         pollSCM ignorePostCommitHooks: true, scmpoll_spec: pollSpec
