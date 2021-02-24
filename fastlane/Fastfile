@@ -29,7 +29,6 @@ lane :refreshJenkinsKeychain do
 end
 
 lane :matchPopulateJenkinsKeychain do
-    register_devices(devices_file: "./fastlane/devices.txt")
   
     match(
       type: "adhoc",
