@@ -1,6 +1,14 @@
 pipeline {
     agent any 
     stages {
+
+        stage('Checkout code') {
+            steps {
+                node('Mac') {
+                    checkout scm
+                }
+            }
+        }
         stage('Reinitialize jenkins keychain') {
             steps {
                 node('Mac') {
