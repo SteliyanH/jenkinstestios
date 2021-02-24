@@ -53,18 +53,19 @@ lane :matchPopulateJenkinsKeychain do
 
   desc "Build application"
   lane :buildAppWithGym do |options|
-    gym(
-      scheme: "test jenkins",
-      clean: true,
-      skip_profile_detection: true,
-      output_name: "test jenkins.ipa",
-      export_method: options[:isProd] ? "app-store" : "ad-hoc",
-      export_options:{
-        signingStyle: "manual",
-          provisioningProfiles:{
-            "com.bulpros.test-jenkins": options[:isProd] ? "match AppStore com.bulpros.test-jenkins" : "match AdHoc com.bulpros.test-jenkins",
-          }
-      }
-    )
+    build
+    # gym(
+    #   scheme: "Debug",
+    #   clean: true,
+    #   skip_profile_detection: true,
+    #   output_name: "test jenkins.ipa",
+    #   export_method: options[:isProd] ? "app-store" : "ad-hoc",
+    #   export_options:{
+    #     signingStyle: "manual",
+    #       provisioningProfiles:{
+    #         "com.bulpros.test-jenkins": options[:isProd] ? "match AppStore com.bulpros.test-jenkins" : "match AdHoc com.bulpros.test-jenkins",
+    #       }
+    #   }
+    # )
   end
 end
