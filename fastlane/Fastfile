@@ -1,0 +1,70 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+
+lane :refreshJenkinsKeychain do
+  delete_keychain(name: "jenkins") if File.exists? File.expand_path("~/Library/Keychains/jenkins-db")
+  create_keychain(
+    name: "jenkins",
+    password: "jenkins",
+    timeout: false,
+    lock_when_sleeps: false,
+    unlock: true
+  )
+end
+
+lane :matchPopulateJenkinsKeychain do
+    register_devices(devices_file: "./fastlane/devices.txt")
+  
+    match(
+      type: "adhoc",
+      app_identifier: [
+        "com.bulpros.test-jenkins"
+      ]
+    )
+    match(
+      type: "development",
+      app_identifier: [
+        "com.bulpros.test-jenkins"
+      ]
+    )
+    match(
+      type: "appstore",
+      app_identifier: [
+        "com.bulpros.test-jenkins"
+      ]
+    )
+  end
+
+  desc "Build application"
+  lane :buildAppWithGym do |options|
+    gym(
+      scheme: "test jenkins",
+      clean: true,
+      skip_profile_detection: true,
+      output_name: "test jenkins.ipa",
+      export_method: options[:isProd] ? "app-store" : "ad-hoc",
+      export_options:{
+        signingStyle: "manual",
+          provisioningProfiles:{
+            "com.bulpros.test-jenkins": options[:isProd] ? "match AppStore com.bulpros.test-jenkins" : "match AdHoc com.bulpros.test-jenkins",
+          }
+      }
+    )
+  end
+end
