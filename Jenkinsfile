@@ -1,22 +1,25 @@
 pipeline {
     agent any 
     stages {
+        stage('Reinitialize jenkins keychain') {
         node('mac') {
-            stage('Reinitialize jenkins keychain') {
+            
                 steps {
                     sh "./fastlane refreshJenkinsKeychain"
                 }
             }
         }
- node('mac') {
         stage('Populate Jenkins Keychain') {
+ node('mac') {
+        
             steps {
                 sh "./fastlane matchPopulateJenkinsKeychain"
             }
         }
  }
+ stage('Build application for beta') {
  node('mac') {
-        stage('Build application for beta') {
+        
             steps {
                 sh "./fastlane buildAppWithGym"
             }
