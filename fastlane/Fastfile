@@ -31,24 +31,24 @@ end
 lane :matchPopulateJenkinsKeychain do
     # register_devices(devices_file: "./fastlane/devices.txt")
   
-    match(
-      type: "adhoc",
-      app_identifier: [
-        "com.bulpros.test-jenkins"
-      ]
-    )
-    match(
-      type: "development",
-      app_identifier: [
-        "com.bulpros.test-jenkins"
-      ]
-    )
-    match(
-      type: "appstore",
-      app_identifier: [
-        "com.bulpros.test-jenkins"
-      ]
-    )
+    # match(
+    #   type: "adhoc",
+    #   app_identifier: [
+    #     "com.bulpros.test-jenkins"
+    #   ]
+    # )
+    # match(
+    #   type: "development",
+    #   app_identifier: [
+    #     "com.bulpros.test-jenkins"
+    #   ]
+    # )
+    # match(
+    #   type: "appstore",
+    #   app_identifier: [
+    #     "com.bulpros.test-jenkins"
+    #   ]
+    # )
   end
 
   desc "Build application"
