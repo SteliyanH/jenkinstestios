@@ -28,29 +28,6 @@ lane :refreshJenkinsKeychain do
   )
 end
 
-lane :matchPopulateJenkinsKeychain do
-    # register_devices(devices_file: "./fastlane/devices.txt")
-  
-    # match(
-    #   type: "adhoc",
-    #   app_identifier: [
-    #     "com.bulpros.test-jenkins"
-    #   ]
-    # )
-     match(
-       type: "development",
-       app_identifier: [
-         "com.bulpros.test-jenkins"
-       ]
-     )
-    # match(
-    #   type: "appstore",
-    #   app_identifier: [
-    #     "com.bulpros.test-jenkins"
-    #   ]
-    # )
-  end
-
   desc "Build application"
   lane :buildAppWithGym do |options|
     gym(
@@ -59,7 +36,8 @@ export_method: “development”,
 configuration: “Debug”,
       clean: true,
 
-      output_name: "./fastlane/builds/test jenkins.ipa"
+      output_name: "./fastlane/builds/test jenkins.ipa",
+export_xcargs: "-allowProvisioningUpdates"
     )
   end
 end
