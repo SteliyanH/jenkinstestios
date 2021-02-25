@@ -60,6 +60,7 @@ configuration: “Debug”,
       clean: true,
 
       output_name: "test jenkins.ipa",
+      xcargs: "-allowProvisioningUpdates",
 export_xcargs: "-allowProvisioningUpdates"
     )
   end
