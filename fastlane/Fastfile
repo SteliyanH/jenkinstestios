@@ -55,8 +55,10 @@ lane :matchPopulateJenkinsKeychain do
   lane :buildAppWithGym do |options|
     gym(
       scheme: "test jenkins",
+export_method: “development”,
+configuration: “Debug”,
       clean: true,
-      skip_profile_detection: true,
+
       output_name: "./fastlane/builds/test jenkins.ipa"
     )
   end
