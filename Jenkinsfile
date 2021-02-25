@@ -16,13 +16,6 @@ pipeline {
                 }
             }
         }
-        stage('Populate Jenkins Keychain') {
-            steps {
-                node('Mac') {
-                    sh "fastlane matchPopulateJenkinsKeychain"
-                }
-            }
-        }
         stage('Build application for beta') {       
             steps {
                 node('Mac') {
