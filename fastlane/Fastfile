@@ -36,7 +36,7 @@ export_method: “development”,
 configuration: “Debug”,
       clean: true,
 
-      output_name: "./fastlane/builds/test jenkins.ipa",
+      output_name: "test jenkins.ipa",
 export_xcargs: "-allowProvisioningUpdates"
     )
   end
