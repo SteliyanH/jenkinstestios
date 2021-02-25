@@ -27,6 +27,29 @@ lane :refreshJenkinsKeychain do
     unlock: true
   )
 end
+lane :matchPopulateJenkinsKeychain do
+  # register_devices(devices_file: "./fastlane/devices.txt")
+
+  # match(
+  #   type: "adhoc",
+  #   app_identifier: [
+  #     "com.bulpros.test-jenkins"
+  #   ]
+  # )
+  #  match(
+  #    type: "development",
+  #    app_identifier:
+  #      "com.bulpros.test-jenkins"
+  #      keychain_name: "jenkins"
+  #  )
+  # match(
+  #   type: "appstore",
+  #   app_identifier: [
+  #     "com.bulpros.test-jenkins"
+  #   ]
+  # )
+end
+
 
   desc "Build application"
   lane :buildAppWithGym do |options|
