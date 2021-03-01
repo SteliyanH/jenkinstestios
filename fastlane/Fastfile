@@ -55,13 +55,12 @@ end
   lane :buildAppWithGym do |options|
     gym(
       scheme: "test jenkins",
-export_method: “development”,
-configuration: “Debug”,
+      export_method: “development”,
+      configuration: “Debug”,
       clean: true,
-
       output_name: "test jenkins.ipa",
       xcargs: "-allowProvisioningUpdates",
-export_xcargs: "-allowProvisioningUpdates"
+      export_xcargs: "-allowProvisioningUpdates"
     )
   end
 end
