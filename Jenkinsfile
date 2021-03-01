@@ -4,31 +4,31 @@ pipeline {
 
         stage('Checkout code') {
             steps {
-                node('Mac') {
+                // node('Mac') {
                     checkout scm
-                }
+                // }
             }
         }
         stage('Reinitialize jenkins keychain') {
             steps {
-                node('Mac') {
+                // node('Mac') {
                     sh "fastlane refreshJenkinsKeychain"
-                }
+                // }
             }
         }
         stage('Populate Jenkins Keychain') {
             steps {
-                node('Mac') {
+                // node('Mac') {
                     sh "fastlane matchPopulateJenkinsKeychain"
-                }
+                // }
             }
         }
 
         stage('Build application for beta') {       
             steps {
-                node('Mac') {
+                // node('Mac') {
                     sh "fastlane buildAppWithGym"
-                }
+                // }
             }
         }
     }
