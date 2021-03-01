@@ -53,7 +53,7 @@ end
 
   desc "Build application"
   lane :buildAppWithGym do |options|
-    build_app(
+    build_ios_app(
       scheme: "test jenkins",
       export_method: “development”,
       configuration: “Debug”,
