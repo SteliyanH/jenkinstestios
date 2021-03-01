@@ -53,10 +53,11 @@ end
 
   desc "Build application"
   lane :buildAppWithGym do |options|
-    gym(
+    build_app(
       scheme: "test jenkins",
       export_method: “development”,
       configuration: “Debug”,
+      silent: true,
       clean: true,
       output_name: "test jenkins.ipa",
       xcargs: "-allowProvisioningUpdates",
