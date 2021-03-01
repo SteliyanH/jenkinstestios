@@ -36,12 +36,12 @@ lane :matchPopulateJenkinsKeychain do
   #     "com.bulpros.test-jenkins"
   #   ]
   # )
-  #  match(
-  #    type: "development",
-  #    app_identifier:
-  #      "com.bulpros.test-jenkins"
-  #      keychain_name: "jenkins"
-  #  )
+   match(
+     type: "development",
+     app_identifier:"com.bulpros.test-jenkins",
+      keychain_name: "login.keychain",
+      keychain_password: "1234"
+   )
   # match(
   #   type: "appstore",
   #   app_identifier: [
