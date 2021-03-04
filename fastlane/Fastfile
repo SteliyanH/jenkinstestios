@@ -54,12 +54,12 @@ end
   desc "Build application"
   lane :buildAppWithGym do |options|
 
-    # setup_jenkins(
-    #   keychain_path: "/Users/admin/Library/Keychains/login.keychain-db",
-    #   keychain_password: "1234"
-    # )
+    setup_jenkins(
+      force: true
+    )
 
     build_ios_app(
+      workspace: "test jenkins.xcworkspace",
       scheme: "test jenkins",
       export_method: “development”,
       configuration: “Debug”,
