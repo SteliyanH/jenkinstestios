@@ -58,6 +58,11 @@ end
       force: true
     )
 
+    cocoapods(
+      clean_install: true,
+      repo_update: true
+    )
+
     build_ios_app(
       workspace: "test jenkins.xcworkspace",
       scheme: "test jenkins",
